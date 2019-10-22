@@ -1,24 +1,39 @@
-# Read the file
-mydata <- read.csv("/home/test/BE/CL-7_practice/ML/Ass_8_PCA_R/pca_gsp.csv")
+data("iris")
+str(iris)
+set.seed(111)
+ind <- sample(2,nrow(iris),
+              replace = TRUE,
+              prob = c(0.8,0.2))
+trainig <- iris[ind==1,]
+testing <- iris[ind==2,]
 
-# attach function attaches dataset to R search file
-attach(mydata)
+trainig
+testing
 
-# Returns names of attributes
-names(mydata)
+nrow(trainig)
+nrow(testing)
 
-# cbind function takes sequence of vector,matrix, or data-frame arguments and combine by columns or rows respectively
-X <- cbind(Ag,Mining,Constr,Manuf,Manuf_nd,Transp,Comm,Energy,TradeW,TradeR,RE,Services,Govt)
-summary(X)
+library(psych)
 
-# cor() function will calculate the correlation between two vectors, or will create a correlation matrix when given a matrix
-cor(X)
+pairs.panels(trainig[,-5],
+             gap=0,
+             bg=c("red","yellow","blue")[trainig$Species],
+             pch=21)
 
-# princomp performs a principal components analysis on the given numeric data matrix and returns the results as an object of class princomp
-pcal <- princomp(X,scores = TRUE, cor = TRUE)
-summary(pcal)
+pc <- prcomp(trainig[,-5],
+             center = TRUE,
+             scale. = TRUE)
+print(pc)
+attributes(pc)
+summary(pc)
+pc$center   #mean
+pc$scale #std deviation
 
-plot(pcal)
-screeplot(pcal,type = "line",main = "Screen Plot")
-biplot(pcal)
-pcal$scores[1:10,]
+
+pairs.panels(pc$x,
+             gap=0,
+             bg=c("red","yellow","blue")[trainig$Species],
+             pch=21)
+
+plot(pc)
+biplot(pc)

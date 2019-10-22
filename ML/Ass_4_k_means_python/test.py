@@ -32,7 +32,7 @@ z = plt.scatter(x.sepal_length, x.sepal_width, x.petal_length, c = colormap[a.la
 accuracy_score(iris.target, a.labels_)
 """
 
-"""import pandas as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -52,15 +52,15 @@ x.isna().sum()
 
 plt.scatter(x.A,x.K )
 
-a = KMeans(n_clusters=3)
+a = KMeans(n_clusters=2)
 a.fit(x)
 a.labels_
 colormap = np.array(['Red', 'Blue', 'Green'])
 z = plt.scatter(x.A,x.H, c = colormap[a.labels_] )
 
-accuracy_score(x.H, a.labels_)"""
+accuracy_score(x.H, a.labels_, normalize=True)
 
-import pandas as pd
+"""import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -83,3 +83,4 @@ a.labels_
 colormap = np.array(['Red', 'Green', 'Blue'])
 
 z = plt.scatter(x.alcohol, x.magnesium, x.hue, c = colormap[a.labels_])
+"""
