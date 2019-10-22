@@ -32,12 +32,13 @@ cm = confusion_matrix(y_test, y_pred)
 
 # Finding the accuracy of the model
 accuracy = (cm[0,0] + cm[1,1]) / (cm[0,0] + cm[0,1]+cm[1,0]+cm[1,1])
+accuracy
 # accuracy=0.9
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
 
-X_set, y_set = X_train, y_train
+"""X_set, y_set = X_train, y_train
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
 
@@ -57,7 +58,7 @@ plt.title('SVM (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
-plt.show()
+plt.show()"""
 
 # Visualising the Test set results
 from matplotlib.colors import ListedColormap
