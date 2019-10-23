@@ -1,22 +1,13 @@
 data("iris")
-str(iris)
-set.seed(111)
 ind <- sample(2,nrow(iris),
               replace = TRUE,
               prob = c(0.8,0.2))
 trainig <- iris[ind==1,]
 testing <- iris[ind==2,]
 
-trainig
-testing
-
-nrow(trainig)
-nrow(testing)
-
 library(psych)
-
 pairs.panels(trainig[,-5],
-             gap=0,
+             gap=1,
              bg=c("red","yellow","blue")[trainig$Species],
              pch=21)
 
@@ -37,3 +28,5 @@ pairs.panels(pc$x,
 
 plot(pc)
 biplot(pc)
+
+screeplot(pc,type = "line",main = "Screen Plot")

@@ -10,6 +10,12 @@ from sklearn.metrics import accuracy_score # To display accuracy score
 iris = datasets.load_iris()
 # Convert iris dataset into pandas DataFrame
 x = pd.DataFrame(iris.data)
+
+#Replacing a value with something
+#replace(replace_this, with_this, inplace = True)
+x['petal_width'].replace(0.2, 0.24, inplace =True) 
+
+#plt.scatter(x['sepal_length'], iris.target)
 # Output of converted data
 x.head()
 
