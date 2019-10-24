@@ -155,7 +155,7 @@ for i,j in enumerate(np.unique(Y_set)):
    plt.scatter(X_set[Y_set == j,0], X_set[Y_set == j,1],
                c = ListedColormap(('red', 'green', 'blue'))(i), label = j)
 """
-"""
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -198,8 +198,8 @@ X1 , X2 = np.meshgrid(np.arange(start = X_set[:,0].min() - 1, stop = X_set[:,0].
 for i,j in enumerate(np.unique(Y_Set)):
    plt.scatter(X_set[Y_Set == j,0], X_set[Y_Set == j,1],
                c = ListedColormap(('red', 'green', 'blue', 'yellow', 'orange'))(i), label = j)
-   """
-   
+
+ """  
 import numpy as np
 import pandas as pd
 
@@ -246,4 +246,4 @@ for i,j in enumerate(np.unique(Y_set)):
 plt.xlabel('predi')
 plt.ylabel('age')
 plt.title('Diabetes')
-    
+    """
