@@ -1,5 +1,3 @@
-
-
 #---------------------------------------------------------------------------
     import pandas as pd
     import numpy as np
@@ -16,7 +14,7 @@
     import graphviz
     from ann_visualizer.visualize import ann_viz
 #---------------------------------------------------------------------------
-    diabetes_df = pd.read_csv('diabetes_csv.csv')
+    diabetes_df = pd.read_csv('/home/test/BE/CL-7_practice/ML/Datasets/Diabetes Dataset/diabetes_csv.csv')
     diabetes_df.describe()
 #---------------------------------------------------------------------------
     diabetes_df['class']=diabetes_df['class'].replace('tested_negative',0)

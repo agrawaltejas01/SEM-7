@@ -31,7 +31,7 @@ z = plt.scatter(x.sepal_length, x.sepal_width, x.petal_length, c = colormap[a.la
 #accuracy
 accuracy_score(iris.target, a.labels_)
 """
-
+"""
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -59,7 +59,7 @@ colormap = np.array(['Red', 'Blue', 'Green'])
 z = plt.scatter(x.A,x.H, c = colormap[a.labels_] )
 
 accuracy_score(x.H, a.labels_, normalize=True)
-
+"""
 """import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -84,3 +84,43 @@ colormap = np.array(['Red', 'Green', 'Blue'])
 
 z = plt.scatter(x.alcohol, x.magnesium, x.hue, c = colormap[a.labels_])
 """
+
+import pandas as pd
+import numpy as np
+
+from sklearn import datasets
+data = datasets.load_iris()
+
+iris = pd.DataFrame(data.data)
+iris.columns = ['petal_length', 'petal_width', 'sepal_length', 'sepal_width']
+
+from sklearn.cluster import KMeans
+classifier = KMeans(n_clusters=3)
+classifier.fit(iris)
+
+classifier.labels_
+
+colormap = np.array(['red', 'blue', 'green'])
+
+import matplotlib.pyplot as plt
+
+plt.scatter(iris.petal_length, iris.petal_width, c = colormap[classifier.labels_])
+
+from sklearn.metrics import accuracy_score
+acc = accuracy_score(data.target, classifier.labels_)
+acc*100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

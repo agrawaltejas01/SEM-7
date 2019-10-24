@@ -1,0 +1,7 @@
+sudo pip install keras
+conda install keras
+sudo apt-get install graphviz
+sudo pip install graphviz
+conda install graphviz
+conda install python-graphviz
+conda install -c conda-forge ann_visualizer

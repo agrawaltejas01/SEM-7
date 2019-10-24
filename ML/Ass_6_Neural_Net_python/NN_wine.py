@@ -13,7 +13,7 @@
     
     
    
-    wine_df = pd.read_csv('wine.data')
+    wine_df = pd.read_csv('/home/test/BE/CL-7_practice/ML/Datasets/Wine Dataset/wine.data')
     wine_df.columns = ['Class', 'Alcohol', 'Malic_Acid', 'Ash', 'Alcalinity_of_ash', 'Magnesium', 'Tot_phenols', 'Flavanoids', 'Non_flavanoid_phenols', 'Proanthocyanins', 'Colour', 'Hue', 'OD280/OD315', 'Proline']
 #-----------------------------------------------------------------
     X = wine_df.iloc[:,1:14]

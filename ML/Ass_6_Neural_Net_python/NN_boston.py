@@ -33,9 +33,8 @@
     
 #-----------------------------------------------------------------
     
-	model = build_model()
-    
-    model.fit(X_train,y_train,batch_size=25,epochs=500)   
+	model = build_model()   
+    model.fit(X_train,y_train,batch_size=25,epochs=500)  
     
     y_pred=model.predict(X_test)
     

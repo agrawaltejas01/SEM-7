@@ -75,31 +75,105 @@
 
 // }
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// #define lli long long int 
+
+// lli gcd(lli e, lli phi)
+// {
+// 	lli temp ;
+
+// 	while(1)
+// 	{
+// 		temp = e % phi;
+
+// 		if(temp == 0)
+// 			return phi;
+
+// 		e = phi;
+// 		phi = temp;
+// 	}
+
+// 	return e;
+// }
+
+// lli fpow(lli msg, lli pow, lli mod)
+// {
+// 	lli res = 1;
+
+// 	msg %= mod;
+
+// 	while(pow)
+// 	{
+// 		if(pow & 1)
+// 			res = res * msg % mod;
+
+// 		pow /= 2;
+
+// 		msg = msg * msg % mod;
+// 	}
+
+// 	return res;
+// }
+
+// int main()
+// {
+// 	lli p=13, q=11;
+// 	lli n = p*q;
+
+// 	lli phi = (p-1)*(q-1);
+
+// 	lli e = 2;
+
+// 	while( e < phi )
+// 	{
+// 		if(gcd(e,phi) == 1)
+// 			break;
+
+// 		e++;
+// 	}
+
+// 	lli k = 1;
+
+// 	while( (1 + k*phi)%e != 0 )
+// 		k++;
+
+// 	lli d = (1 + k*phi) / e;
+
+// 	lli msg = 24;
+
+// 	lli encrypt = fpow(msg, e, n);
+// 	cout<<encrypt<<"\n";
+
+// 	lli decrypt = fpow(encrypt, d, n);
+// 	cout<<decrypt<<"\n";
+
+// }
+
+
+
+
 #include<bits/stdc++.h>
 using namespace std;
-#define lli long long int 
 
-lli gcd(lli e, lli phi)
+int gcd(int a,int b)
 {
-	lli temp ;
-
+	int temp = 1;
 	while(1)
 	{
-		temp = e % phi;
+		temp = a%b;
 
 		if(temp == 0)
-			return phi;
+			return b;
 
-		e = phi;
-		phi = temp;
+		a = b;
+		b = temp;
 	}
-
-	return e;
 }
 
-lli fpow(lli msg, lli pow, lli mod)
+int fpow(int msg, int pow, int mod)
 {
-	lli res = 1;
+	int res = 1;
 
 	msg %= mod;
 
@@ -114,18 +188,18 @@ lli fpow(lli msg, lli pow, lli mod)
 	}
 
 	return res;
+
 }
 
 int main()
 {
-	lli p=13, q=11;
-	lli n = p*q;
+	int p=11, q = 13;
+	int n = p*q;
+	int phi = (p-1)*(q-1);
 
-	lli phi = (p-1)*(q-1);
+	int e = 2;
 
-	lli e = 2;
-
-	while( e < phi )
+	while(1)
 	{
 		if(gcd(e,phi) == 1)
 			break;
@@ -133,19 +207,16 @@ int main()
 		e++;
 	}
 
-	lli k = 1;
-
-	while( (1 + k*phi)%e != 0 )
+	int k = 1;
+	while((1+k*phi)%e != 0)
 		k++;
 
-	lli d = (1 + k*phi) / e;
+	int d = (1+k*phi)/e;
 
-	lli msg = 24;
+	int msg = 15;
 
-	lli encrypt = fpow(msg, e, n);
-	cout<<encrypt<<"\n";
+	int encrypt = fpow(msg, e, n);
+	int decrypt = fpow(encrypt, d, n);
 
-	lli decrypt = fpow(encrypt, d, n);
-	cout<<decrypt<<"\n";
-
+	cout<<msg<<endl<<encrypt<<endl<<decrypt<<endl;
 }

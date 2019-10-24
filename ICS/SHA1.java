@@ -11,20 +11,27 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException; 
 import java.util.Scanner;
   
-public class SHA1 { 
+public class SHA1
+{ 
     public static String encryptThisString(String input) 
     { 
-        try { 
+        try
+        { 
             MessageDigest md = MessageDigest.getInstance("SHA-1"); 
-            byte[] messageDigest = md.digest(input.getBytes()); 
+            byte[] messageDigest = md.digest(input.getBytes());         // getBytes returns corresponding encoding of string
+                                                                        // e.g ASTHA GFG -> 658384726532717071
+
             BigInteger no = new BigInteger(1, messageDigest); 
+
             String hashtext = no.toString(16); 
+
             while (hashtext.length() < 32) 
             { 
                 hashtext = "0" + hashtext; 
             } 
             return hashtext; 
         }  
+
         catch (NoSuchAlgorithmException e) 
         { 
             throw new RuntimeException(e); 
